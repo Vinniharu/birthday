@@ -9,6 +9,7 @@ import {
   ChevronRight,
   Sparkles,
   ArrowDown,
+  Maximize,
 } from "lucide-react";
 
 // ─── Intersection-observer based fade hook ────────────────────────────────────
@@ -264,6 +265,16 @@ export default function TributePage() {
           }}
         />
       </div>
+
+      {/* ── Slideshow Link ─────────────────────────────────────────────── */}
+      <a
+        href="/fulldisplay"
+        className="fixed top-6 right-8 z-50 flex items-center justify-center w-12 h-12 rounded-full border border-cyan-400/20 bg-[#071428]/80 backdrop-blur-md text-cyan-400/70 transition-all duration-300 hover:text-cyan-300 hover:border-cyan-400/50 hover:bg-[#0b1e38] hover:scale-105 hover:shadow-[0_0_20px_rgba(34,211,238,0.2)] group max-sm:w-10 max-sm:h-10 max-sm:top-4 max-sm:right-4"
+        aria-label="View Fullscreen Slideshow"
+        title="Fullscreen Slideshow"
+      >
+        <Maximize className="w-5 h-5 transition-transform duration-300 group-hover:scale-110" strokeWidth={1.5} />
+      </a>
 
       {/* ══════════════════════════════════════════════════════════════════
           SECTION 1 — HERO

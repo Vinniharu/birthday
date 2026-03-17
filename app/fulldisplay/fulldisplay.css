@@ -1,0 +1,48 @@
+/* ═══════════════════════════════════════════════════════════════════════
+   Fulldisplay — Minimal CSS (animations + pseudo-elements only)
+   Everything else is Tailwind in the component.
+   ═══════════════════════════════════════════════════════════════════════ */
+
+/* ── Background shimmer overlay (pseudo-element, can't do in TW) ──── */
+.slide-bg::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+        radial-gradient(ellipse 50% 40% at 30% 20%, rgba(255, 255, 255, 0.04) 0%, transparent 100%),
+        radial-gradient(ellipse 50% 40% at 70% 80%, rgba(255, 255, 255, 0.03) 0%, transparent 100%);
+    pointer-events: none;
+}
+
+/* ── Slide entrance / exit keyframes ─────────────────────────────────── */
+@keyframes slideIn {
+    0% {
+        opacity: 0;
+        transform: translateY(30px) scale(0.97);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+@keyframes slideOut {
+    0% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+
+    100% {
+        opacity: 0;
+        transform: translateY(-20px) scale(0.98);
+    }
+}
+
+.slide-in {
+    animation: slideIn 0.7s ease-out forwards;
+}
+
+.slide-out {
+    animation: slideOut 0.4s ease-in forwards;
+}
